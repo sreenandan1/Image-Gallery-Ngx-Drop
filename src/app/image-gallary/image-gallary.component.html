@@ -1,0 +1,11 @@
+<ngx-file-drop dropZoneLabel="Drop your files here!" (onFileDrop)="dropped($event)">
+</ngx-file-drop>
+<!-- ------------- -->
+
+<input type="file" multiple (change)="onfileSelected($event)">
+<mat-list >
+  <mat-list-item *ngFor="let file of files" >
+      <img class="img" [src]="getImageUrl(file)" (click)="openFullScreen(file)">
+    
+  </mat-list-item>
+</mat-list>
