@@ -9,31 +9,28 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrl: './full-screen-dialog.component.css'
 })
 export class FullScreenDialogComponent {
-  files: File[];
+  files: { file: File; url: string }[];
   currentIndex: number;
-  
-  constructor(@Inject(MAT_DIALOG_DATA) public data: { file: File,files:File[],index:number}) {
-    this.files=data.files
-    this.currentIndex=data.index
+
+  constructor(@Inject(MAT_DIALOG_DATA) public data: { files: { file: File; url: string }[], index: number }) {
+    this.files = data.files || []; // Ensure fallback
+    this.currentIndex = data.index || 0; // Ensure fallback
   }
 
-  getImageUrl(file: File): string {
-    return URL.createObjectURL(file);
-  }
-
-  moveNext(){
-    if(this.currentIndex < this.files.length -1){
-      this.currentIndex++
+  moveNext() {
+    if (this.currentIndex < this.files.length - 1) {
+      this.currentIndex++;
     }
   }
 
-  moveBack(){
-  if(this.currentIndex >0)
-    this.currentIndex--;
+  moveBack() {
+    if (this.currentIndex > 0) {
+      this.currentIndex--;
+    }
   }
 
-  getCurrentImageUrl(){
-    return this.getImageUrl(this.files[this.currentIndex])
+  // Use cached URL instead of regenerating
+  getCurrentImageUrl() {
+    return this.files[this.currentIndex]?.url; // Use optional chaining to avoid undefined errors
   }
-
 }

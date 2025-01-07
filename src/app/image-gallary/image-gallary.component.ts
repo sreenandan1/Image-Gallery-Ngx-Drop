@@ -13,14 +13,16 @@ import { NgxFileDropEntry } from 'ngx-file-drop';
 })
 export class ImageGallaryComponent {
 
+  
   constructor(private fileService: FileService, private dialog: MatDialog) { }
 
-  files: File[] = [];
+  // Change type to match new structure
+  files: { file: File; url: string }[] = [];
 
   // Handle traditional file input
   onfileSelected(event: any) {
-    const newFiles = event.target.files;
-    this.fileService.addFiles(newFiles);
+    const newFiles = Array.from(event.target.files) as File[];
+this.fileService.addFiles(newFiles);
     this.files = this.fileService.getFiles();
   }
 
@@ -37,13 +39,18 @@ export class ImageGallaryComponent {
     }
   }
 
-  getImageUrl(file: File): string {
-    return URL.createObjectURL(file);
+  // Update getImageUrl to use precomputed URLs
+  getImageUrl(fileData: { file: File; url: string }): string {
+    return fileData.url;
   }
 
-  openFullScreen(file: File) {
+  // Pass files and index to FullScreenDialogComponent
+  openFullScreen(fileData: { file: File; url: string }) {
+    const index = this.files.indexOf(fileData);
     this.dialog.open(FullScreenDialogComponent, {
-      data: { file }
+      data: { files: this.files, index }
     });
   }
+
+  
 }

@@ -1,11 +1,8 @@
-
 <div class="main">
-    <button class="btn btn-primary">Back</button>
-<div class="Dialogue-div" style="text-align: center;">
-    <img [src]="getImageUrl(data.file)" style="width: 100%; height: auto;" />
-    
-    <!-- <p>Dialogue: "Bootstrap says hi!"</p> -->
-</div>
-<button class="btn btn-primary" (click)="moveNext()">Next</button>
-
-</div>
+    <button class="btn btn-primary" (click)="moveBack()" [disabled]="currentIndex === 0">Back</button>
+    <div class="dialogue-div" style="text-align: center;">
+      <img [src]="getCurrentImageUrl()" style="width: 100%; height: auto;" />
+    </div>
+    <button class="btn btn-primary" (click)="moveNext()" [disabled]="currentIndex === files.length - 1">Next</button>
+  </div>
+  
