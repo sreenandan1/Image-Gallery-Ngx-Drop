@@ -3,8 +3,8 @@
 
 <input type="file" multiple (change)="onfileSelected($event)" />
 
-<mat-list>
-  <mat-list-item *ngFor="let fileData of files">
-    <img class="img" [src]="getImageUrl(fileData)" (click)="openFullScreen(fileData)" />
+<mat-list style="background-color: skyblue;">
+  <mat-list-item  class="d-flex bd-highlight mb-3"  *ngFor="let fileData of files">
+    <img  class="img" [src]="getImageUrl(fileData)" (click)="openFullScreen(fileData)" />
   </mat-list-item>
 </mat-list>
