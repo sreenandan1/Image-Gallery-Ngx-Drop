@@ -1,13 +1,49 @@
-.img{
-    height: auto;
-    width: 100%;
-}
-
-.main{
+/* Ensure the body or any container element takes full width and height */
+html, body, .container {
+    height: 100%; /* Make sure the container and body take up full height */
+    width: 100%; /* Ensure the container spans the full width */
+    margin: 0;
+  }
+  
+  .container {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
+    /* background-color:white transparent(0.5); */
     align-items: center;
-    width: 100%;
-    background-color: aqua;
-}
+    position: relative;
+    overflow: hidden;
+    height: 100%;  /* Make the container fill the height */
+    width: 100%;   /* Make the container fill the width */
+  }
+  
+  .image-container {
+    flex: 1; /* Allow the image container to take available space */
+    height: 80vh; /* Full height */
+    display: flex;
+    justify-content: center;  /* Center the image horizontally */
+    align-items: center;  /* Center the image vertically */
+  }
+  
+  img {
+   width: 70%;
+   height: 70vh;
+    object-fit: cover; /* Ensure the image maintains its aspect ratio while filling the available space */
+  }
+  
+
+
+  @media (max-width:768px){
+    .container{
+        background-color: red;
+        margin-left: 170px;
+        width: 50%;
+        height: 50vh;
+        
+        
+    }
+    img{
+        width: 50%;
+        height: 50vh;
+    }
+
+  }

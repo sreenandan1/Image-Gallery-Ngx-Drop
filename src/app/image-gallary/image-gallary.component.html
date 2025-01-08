@@ -1,10 +1,26 @@
-<ngx-file-drop dropZoneLabel="Drop your files here!" (onFileDrop)="dropped($event)">
-</ngx-file-drop>
-
-<input type="file" multiple (change)="onfileSelected($event)" />
-
-<mat-list style="background-color: skyblue;">
-  <mat-list-item  class="d-flex bd-highlight mb-3"  *ngFor="let fileData of files">
-    <img  class="img" [src]="getImageUrl(fileData)" (click)="openFullScreen(fileData)" />
-  </mat-list-item>
-</mat-list>
+<body>
+  
+  <div class="ngx-file-drop">
+    <ngx-file-drop
+    dropZoneLabel="Drop your files here!"
+    (onFileDrop)="dropped($event)"
+    >
+  </ngx-file-drop>
+</div>
+<div class="inptDiv">
+  <input type="file" multiple (change)="onfileSelected($event)" /> 
+</div>
+<div class="container">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+    <div class="col" *ngFor="let fileData of files">
+      <img
+        [src]="getImageUrl(fileData)"
+        (click)="openFullScreen(fileData)"
+        class="img-fluid"
+        />
+        <p class="pathNAme"> {{fileData.file.name}} </p>
+      </div>
+    </div>
+  </div>
+  
+</body>

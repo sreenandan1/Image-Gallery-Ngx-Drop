@@ -46,8 +46,17 @@ this.fileService.addFiles(newFiles);
 
   // Pass files and index to FullScreenDialogComponent
   openFullScreen(fileData: { file: File; url: string }) {
+    console.log(window.innerWidth,window.innerHeight);
+    
     const index = this.files.indexOf(fileData);
     this.dialog.open(FullScreenDialogComponent, {
+
+      height: '750px',
+      width: '1080px',
+      minWidth:1080,
+
+       
+      
       data: { files: this.files, index }
     });
   }

@@ -1,8 +1,13 @@
-<div class="main">
-    <button class="btn btn-primary" (click)="moveBack()" [disabled]="currentIndex === 0">Back</button>
-    <div class="dialogue-div" style="text-align: center;">
-      <img [src]="getCurrentImageUrl()" style="width: 100%; height: auto;" />
-    </div>
-    <button class="btn btn-primary" (click)="moveNext()" [disabled]="currentIndex === files.length - 1">Next</button>
+<div class="container">
+  <button class="btn btn-primary left-btn" (click)="moveBack()" [disabled]="currentIndex === 0">
+    Back
+  </button>
+
+  <div class="image-container">
+    <img [src]="getCurrentImageUrl()" alt="Image" />
   </div>
-  
+
+  <button class="btn btn-primary right-btn" (click)="moveNext()" [disabled]="currentIndex === files.length - 1">
+    Next
+  </button>
+</div>

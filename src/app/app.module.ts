@@ -9,6 +9,7 @@ import {MatListModule} from '@angular/material/list';
 import { FullScreenDialogComponent } from './full-screen-dialog/full-screen-dialog.component';
 import { CdkDrag } from '@angular/cdk/drag-drop';
 import { NgxFileDropModule } from 'ngx-file-drop';
+import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 
 
 
@@ -26,7 +27,9 @@ import { NgxFileDropModule } from 'ngx-file-drop';
     NgxFileDropModule
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    // MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}
+
   ],
   bootstrap: [AppComponent]
 })
