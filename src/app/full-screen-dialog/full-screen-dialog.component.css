@@ -1,49 +1,64 @@
-/* Ensure the body or any container element takes full width and height */
-html, body, .container {
-    height: 100%; /* Make sure the container and body take up full height */
-    width: 100%; /* Ensure the container spans the full width */
-    margin: 0;
-  }
-  
+
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  /* background-color:white transparent(0.5); */
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  height: 80vh; /* Make the container fill the height */
+  width: 100vw; /* Make the container fill the width */
+}
+
+.image-container {
+  /* background-color: antiquewhite; */
+  flex: 1; /* Allow the image container to take available space */
+  height: 80vh; /* Full height */
+  display: flex;
+  justify-content: center; /* Center the image horizontally */
+  align-items: center; /* Center the image vertically */
+}
+
+img {
+  width: 60vw;
+  height: 60vh;
+  object-fit: cover; /* Ensure the image maintains its aspect ratio while filling the available space */
+}
+
+@media (max-width: 768px) {
   .container {
-    display: flex;
-    justify-content: space-between;
-    /* background-color:white transparent(0.5); */
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    height: 100%;  /* Make the container fill the height */
-    width: 100%;   /* Make the container fill the width */
+    /* margin-left: 220px; */
+    width: 60vw;
+    height: 50vh;
+    /* background-color: red; */
   }
-  
-  .image-container {
-    flex: 1; /* Allow the image container to take available space */
-    height: 80vh; /* Full height */
-    display: flex;
-    justify-content: center;  /* Center the image horizontally */
-    align-items: center;  /* Center the image vertically */
-  }
-  
   img {
-   width: 70%;
-   height: 70vh;
-    object-fit: cover; /* Ensure the image maintains its aspect ratio while filling the available space */
+    width: 320px;
+    height: 320px;
   }
-  
+}
 
-
-  @media (max-width:768px){
-    .container{
-        background-color: red;
-        margin-left: 170px;
-        width: 50%;
-        height: 50vh;
-        
-        
-    }
-    img{
-        width: 50%;
-        height: 50vh;
-    }
-
+@media (max-width: 375px) {
+  .container {
+    width: 90vw;
+    height: 45vh;
+    /* background-color: aquamarine; */
   }
+  img {
+    width:  55vw;
+    height: 35vh;
+  }
+
+  .btnL{
+    
+    font-size: 0.8rem;
+  }
+  .btnR{
+   
+    font-size: 0.8rem;
+
+    
+  }
+
+}

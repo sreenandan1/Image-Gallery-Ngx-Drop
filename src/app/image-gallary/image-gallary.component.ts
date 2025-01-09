@@ -7,14 +7,12 @@ import { NgxFileDropEntry } from 'ngx-file-drop';
 @Component({
   selector: 'app-image-gallary',
   standalone: false,
-  
+
   templateUrl: './image-gallary.component.html',
-  styleUrl: './image-gallary.component.css'
+  styleUrl: './image-gallary.component.css',
 })
 export class ImageGallaryComponent {
-
-  
-  constructor(private fileService: FileService, private dialog: MatDialog) { }
+  constructor(private fileService: FileService, private dialog: MatDialog) {}
 
   // Change type to match new structure
   files: { file: File; url: string }[] = [];
@@ -22,7 +20,7 @@ export class ImageGallaryComponent {
   // Handle traditional file input
   onfileSelected(event: any) {
     const newFiles = Array.from(event.target.files) as File[];
-this.fileService.addFiles(newFiles);
+    this.fileService.addFiles(newFiles);
     this.files = this.fileService.getFiles();
   }
 
@@ -46,20 +44,15 @@ this.fileService.addFiles(newFiles);
 
   // Pass files and index to FullScreenDialogComponent
   openFullScreen(fileData: { file: File; url: string }) {
-    console.log(window.innerWidth,window.innerHeight);
-    
+    console.log(window.innerWidth, window.innerHeight);
+
     const index = this.files.indexOf(fileData);
     this.dialog.open(FullScreenDialogComponent, {
+      // height:70+'vh',
+      maxWidth: '100vw',
+      // minWidth:90+'%',
 
-      height: '750px',
-      width: '1080px',
-      minWidth:1080,
-
-       
-      
-      data: { files: this.files, index }
+      data: { files: this.files, index },
     });
   }
-
-  
 }

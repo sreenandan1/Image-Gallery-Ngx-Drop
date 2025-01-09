@@ -1,5 +1,5 @@
 <div class="container">
-  <button class="btn btn-primary left-btn" (click)="moveBack()" [disabled]="currentIndex === 0">
+  <button class="btnL btn-primary left-btn" (click)="moveBack()" [disabled]="currentIndex === 0">
     Back
   </button>
 
@@ -7,7 +7,7 @@
     <img [src]="getCurrentImageUrl()" alt="Image" />
   </div>
 
-  <button class="btn btn-primary right-btn" (click)="moveNext()" [disabled]="currentIndex === files.length - 1">
+  <button class="btnR btn-primary right-btn" (click)="moveNext()" [disabled]="currentIndex === files.length - 1">
     Next
   </button>
 </div>
